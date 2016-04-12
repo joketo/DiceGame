@@ -1,7 +1,6 @@
 
 package dicegame;
 
-import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -26,9 +25,7 @@ public class GUI implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        //container.setLayout(new BorderLayout());
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
-        // GridLayout layout = new GridLayout(6, 2);
         container.setLayout(layout);
         JPanel banner = new JPanel(new GridLayout(1,1));
         ImageIcon bannerPicture = createImageIcon("images/noppia.png");
