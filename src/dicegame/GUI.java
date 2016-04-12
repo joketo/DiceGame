@@ -1,11 +1,10 @@
-
 package dicegame;
 
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.*;
-
 
 public class GUI implements Runnable {
 
@@ -17,6 +16,7 @@ public class GUI implements Runnable {
         frame.setPreferredSize(new Dimension(620, 500));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.white);
         //frame.setLocationRelativeTo(null);
         luoKomponentit(frame.getContentPane());
 
@@ -27,13 +27,13 @@ public class GUI implements Runnable {
     private void luoKomponentit(Container container) {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
-        JPanel banner = new JPanel(new GridLayout(1,1));
+        JPanel banner = new JPanel(new GridLayout(1, 1));
         ImageIcon bannerPicture = createImageIcon("images/noppia.png");
         banner.add(new JLabel(bannerPicture));
-        
+
         JButton play = new JButton("Heitä noppia");
         JTextField quess = new JTextField();
-        JLabel sum = new JLabel("",JLabel.CENTER);
+        JLabel sum = new JLabel("", JLabel.CENTER);
         JLabel rightOrWrong = new JLabel("", JLabel.CENTER);
         JButton quit = new JButton("Lopeta");
         JLabel info = new JLabel(" ", JLabel.CENTER);
@@ -58,9 +58,9 @@ public class GUI implements Runnable {
         result.add(sum);
         result.add(info);
 
-        JPanel Dices = new JPanel(new GridLayout(1, 2));
-        Dices.add(firstDiceImage);
-        Dices.add(secondDiceImage);
+        JPanel dices = new JPanel(new GridLayout(1, 2));
+        dices.add(firstDiceImage);
+        dices.add(secondDiceImage);
 
         JPanel buttons = new JPanel(new GridLayout(1, 2));
         buttons.add(play);
@@ -69,19 +69,19 @@ public class GUI implements Runnable {
         play.addActionListener(new PlayButtonListener(numberOfDiceSides, quess,
                 sum, rightOrWrong, info, firstDiceImage, secondDiceImage));
         quit.addActionListener(new QuitButtonListener());
-        
+
+        banner.setBackground(Color.WHITE);
+        setValues.setBackground(Color.WHITE);
+        dices.setBackground(Color.WHITE);
+        result.setBackground(Color.WHITE);
+
         container.add(banner);
         container.add(setValues);
-        container.add(Dices);
+        container.add(dices);
         container.add(result);
         container.add(buttons);
-
-
     }
 
-    /**
-     * Returns an ImageIcon, or null if the path was invalid.
-     */
     protected ImageIcon createImageIcon(String path) {
         java.net.URL imgURL = getClass().getResource(path);
         if (imgURL != null) {
