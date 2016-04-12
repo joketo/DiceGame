@@ -8,7 +8,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class DiceButtonListener implements ActionListener {
+public class PlayButtonListener implements ActionListener {
 
     private JLabel info;
     private JTextField theQuess;
@@ -19,7 +19,7 @@ public class DiceButtonListener implements ActionListener {
     private JLabel secondDiceImage;
     private int chosenDiceType;
 
-    public DiceButtonListener(JComboBox sides, JTextField theQuess,
+    public PlayButtonListener(JComboBox sides, JTextField theQuess,
             JLabel sumField, JLabel rightOrWrong,
             JLabel info, JLabel firstDice, JLabel secondDice) {
         this.numberOfSides = sides;
@@ -56,7 +56,7 @@ public class DiceButtonListener implements ActionListener {
                 firstDiceImage.setIcon(createIcon(Integer.toString(first)));
                 secondDiceImage.setIcon(createIcon(Integer.toString(second)));
             } catch (Exception e) {
-                info.setText("Virhe: Kirjoita vain numeroita!");
+                info.setText("Virhe: Kirjoita vain numeroita! (kokonaislukuja)");
             }
         }
     }

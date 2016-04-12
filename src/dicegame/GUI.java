@@ -66,7 +66,7 @@ public class GUI implements Runnable {
         buttons.add(play);
         buttons.add(quit);
 
-        play.addActionListener(new DiceButtonListener(numberOfDiceSides, quess,
+        play.addActionListener(new PlayButtonListener(numberOfDiceSides, quess,
                 sum, rightOrWrong, info, firstDiceImage, secondDiceImage));
         quit.addActionListener(new QuitButtonListener());
         
